@@ -1,5 +1,5 @@
 Program Name
-	GameProgram of UnixProject - Adventuring Text World
+	A Text Only Game Project on Unix - Adventuring Text World
 
 Authors
 	Xuan-Yao Chen
