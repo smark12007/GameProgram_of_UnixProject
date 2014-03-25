@@ -3,10 +3,11 @@
 void gameloop(void);
 
 int main(void) {
-	initcurses();
+	initbasesys();
 	refresh();
+	onebeep();
 	gameloop();
-	closecurses();
+	endbasesys();
 	return 0;
 }
 

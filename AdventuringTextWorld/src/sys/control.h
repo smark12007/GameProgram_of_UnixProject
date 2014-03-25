@@ -1,10 +1,10 @@
 #ifndef _CONTROL_H
 #define _CONTROL_H
 
+#include "base.h"
+
 #define KEY_ESC 27
 #define KEY_TAB '\t'
-
-#include "base.h"
 
 void initcurses(void);
 

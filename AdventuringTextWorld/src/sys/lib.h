@@ -3,6 +3,10 @@
 
 #include "control.h"
 #include "screen.h"
+#include "soundeffect.h"
 #include "timer.h"
+
+void initbasesys(void);
+void endbasesys(void);
 
 #endif

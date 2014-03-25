@@ -1,5 +1,5 @@
-#ifndef _PRINT_H
-#define _PRINT_H
+#ifndef _SCREEN_H
+#define _SCREEN_H
 
 #include "base.h"
 

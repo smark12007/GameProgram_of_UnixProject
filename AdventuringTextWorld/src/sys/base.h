@@ -18,6 +18,9 @@
 #define false FALSE
 #define true TRUE
 
+#define ON true
+#define OFF false
+
 struct timeval timeperframe;
 long int idletimesforkeypress;
 
