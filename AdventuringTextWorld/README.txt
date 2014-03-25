@@ -1,5 +1,8 @@
-Name
+Program Name
+	AdventuringTextWorld
+Authors
 	
-Author
+Introductions
 	
-Usage
+Controls
+	
