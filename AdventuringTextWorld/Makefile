@@ -12,7 +12,7 @@ target: proj
 
 # Compile the .o file to generate executable file
 proj: main.o base.o control.o screen.o timer.o moveobj
-	$(CC) obj/*.o $(LINK) -o bin/result.exe
+	$(CC) obj/*.o $(LINK) -o bin/AdventuringTextWorld.exe
 
 # Compile the .c file into .o file
 main.o:
@@ -30,10 +30,10 @@ moveobj:
 
 # Clean the .o files and core
 clean:
-	$(RM) obj/*.o bin/result.exe bin/core ./core finished.txt
+	$(RM) obj/*.o bin/core ./core finished.txt bin/AdventuringTextWorld.exe
 
 # Run Executable
 run:
-	./bin/result.exe
+	./bin/AdventuringTextWorld.exe
 
 # End of Makefile
