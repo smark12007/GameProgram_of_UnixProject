@@ -1,5 +1,5 @@
 Program Name
-	A Text Only Game Project on Unix - Adventuring Text World
+	Adventuring Text World
 
 Authors
 	Xuan-Yao Chen
@@ -11,7 +11,8 @@ Language
 	Chinese(Taiwan)
 
 Introductions
-	
+	It is a game programing project which is A Text Only Game Project on Unix.
+	(...)
 
 Controls(Usage)
 	
