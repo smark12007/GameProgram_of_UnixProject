@@ -2,7 +2,7 @@ Program Name
 	Adventuring Text World
 
 Authors
-	Xuan-Yao Chen
+	Xuan-Yao Chen, 
 
 Encoding
 	Unicode(UTF-8)
