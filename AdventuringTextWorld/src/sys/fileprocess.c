@@ -8,12 +8,17 @@ int fileprocessor(const char *inputfilename, const char *outputfilename, const c
 	char defaultoutputname[7];
 	int returnum = 0;
 	int i;
+	char c;
 	defaultoutputname[0] = 0;
 	int usage = 0;
-	if(strcmp(usagestr, "txt2bi") == 0) {
+	if(strcmp(usagestr, "ch2int")  == 0) {
 		usage = 1;
-	} else if(strcmp(usagestr, "bi2txt") == 0) {
+	} else if (strcmp(usagestr, "int2ch") == 0) {
 		usage = 2;
+	} else if(strcmp(usagestr, "txt2bi") == 0) {
+		usage = 3;
+	} else if(strcmp(usagestr, "bi2txt") == 0) {
+		usage = 4;
 	}
 	if(!usage) {
 		return -1;
@@ -21,10 +26,10 @@ int fileprocessor(const char *inputfilename, const char *outputfilename, const c
 	if(!inputfilename) {
 		return -1;
 	}
-	if((usage == 1) && (!(fin = fopen(inputfilename, "r")))) {
+	if((usage >= 1) && (usage <= 3) && (!(fin = fopen(inputfilename, "r")))) {
 		return -1;
 	}
-	if((usage == 2) && (!(fin = fopen(inputfilename, "rb")))) {
+	if((usage == 4) && (!(fin = fopen(inputfilename, "rb")))) {
 		return -1;
 	}
 	if(outputfilename) {
@@ -36,9 +41,9 @@ int fileprocessor(const char *inputfilename, const char *outputfilename, const c
 		defaultoutputname[0] = 1;
 	}
 	if(defaultoutputname[0] == 0) {
-		if(usage == 1) {
+		if(usage == 3) {
 			fout = fopen(outputfilename, "wb");
-		} else if(usage == 2) {
+		} else if((usage == 1) || (usage == 2) || (usage == 4)) {
 			fout = fopen(outputfilename, "w");
 		}
 	} else {
@@ -53,17 +58,25 @@ int fileprocessor(const char *inputfilename, const char *outputfilename, const c
 		if(i == 100) {
 			return -1;
 		}
-		if(usage == 1) {
+		if(usage == 3) {
 			fout = fopen(defaultoutputname, "wb");
-		} else if(usage == 2) {
+		} else if((usage == 1) || (usage == 2) || (usage == 4)) {
 			fout = fopen(defaultoutputname, "w");
 		}
 	}
-	if(usage == 1) {
+	if (usage == 1) {
+		while((c = fgetc(fin)) != EOF) {
+			fprintf(fout, "%d\n", c);
+		}
+	}else if (usage == 2) {
+		while(fscanf(fin, "%d", &i) == 1) {
+			fputc(i, fout);
+		}
+	} else if(usage == 3) {
 		while(fscanf(fin, "%d", &i) == 1) {
 			fwrite( &i, sizeof(i), 1, fout);
 		}
-	}else if(usage == 2) {
+	} else if(usage == 4) {
 		while(fread( &i, sizeof(i), 1, fin) == 1) {
 			fprintf(fout, "%d\n", i);
 		}
@@ -71,6 +84,14 @@ int fileprocessor(const char *inputfilename, const char *outputfilename, const c
 	fclose(fin);
 	fclose(fout);
 	return returnum;
+}
+
+int ch2int(const char *inputfilename, const char *outputfilename) {
+	return fileprocessor(inputfilename, outputfilename, "ch2int");
+}
+
+int int2ch(const char *inputfilename, const char *outputfilename) {
+	return fileprocessor(inputfilename, outputfilename, "int2ch");
 }
 
 int txt2bi(const char *inputfilename, const char *outputfilename) {
