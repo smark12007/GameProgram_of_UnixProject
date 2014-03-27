@@ -1,8 +1,8 @@
 Program Name
-	Adventuring Text World
+	A Text Only Game Project on Unix - Adventuring Text World
 
 Authors
-	Xuan-Yao Chen, 
+	Xuan-Yao Chen
 
 Encoding
 	Unicode(UTF-8)
@@ -11,8 +11,7 @@ Language
 	Chinese(Taiwan)
 
 Introductions
-	It is a game programing project which is A Text Only Game Project on Unix.
-	(...)
+	
 
-Controls(Usage)
-	(...)
+Controls (Usage)
+	
